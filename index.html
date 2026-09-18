@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CropCare AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            🌱 CropCare <span>AI</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#diagnosis">Diagnosis</a>
+            <a href="#chatbot">AI Chat</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🤖 AI Powered Agriculture
+            </div>
+
+            <h1>
+                Smart Crop Health
+                <span>Assistant</span>
+            </h1>
+
+            <p>
+                Upload your crop image and get AI-powered
+                insights about possible diseases, pests and
+                crop health problems.
+            </p>
+
+            <a href="#diagnosis" class="start-btn">
+                Start Crop Diagnosis →
+            </a>
+
+        </div>
+
+        <div class="hero-card">
+            <div class="plant-icon">🌿</div>
+
+            <h3>AI Crop Analysis</h3>
+
+            <p>
+                Image + Crop Details + Farmer Question
+            </p>
+
+            <div class="analysis-bar">
+                <div></div>
+            </div>
+
+            <small>Ready for analysis</small>
+        </div>
+
+    </section>
+
+
+    <!-- DIAGNOSIS SECTION -->
+    <section class="diagnosis" id="diagnosis">
+
+        <div class="section-title">
+
+            <p class="small-title">
+                CROP DIAGNOSIS
+            </p>
+
+            <h2>
+                Check Your Crop Health
+            </h2>
+
+            <p>
+                Provide crop information and upload an image
+                for AI analysis.
+            </p>
+
+        </div>
+
+
+        <div class="diagnosis-container">
+
+            <!-- IMAGE UPLOAD -->
+
+            <div class="upload-card">
+
+                <h3>📷 Crop Image</h3>
+
+                <div class="upload-area" id="uploadArea">
+
+                    <div id="uploadContent">
+
+                        <div class="upload-icon">
+                            📸
+                        </div>
+
+                        <h4>
+                            Upload Crop Image
+                        </h4>
+
+                        <p>
+                            JPG, PNG up to 10MB
+                        </p>
+
+                    </div>
+
+                    <img id="previewImage" alt="Crop Preview">
+
+                </div>
+
+                <input type="file" id="imageInput" accept="image/*" hidden>
+
+                <button class="upload-btn" onclick="document.getElementById('imageInput').click()">
+                    Choose Image
+                </button>
+
+            </div>
+
+
+            <!-- CROP DETAILS -->
+
+            <div class="details-card">
+
+                <h3>🌾 Crop Details</h3>
+
+                <label>Crop Name</label>
+
+                <select id="crop">
+                    <option value="">Select Crop</option>
+                    <option>Rice</option>
+                    <option>Tomato</option>
+                    <option>Wheat</option>
+                    <option>Cotton</option>
+                    <option>Maize</option>
+                    <option>Chilli</option>
+                </select>
+
+
+                <label>Growth Stage</label>
+
+                <select id="stage">
+                    <option value="">Select Stage</option>
+                    <option>Seedling</option>
+                    <option>Vegetative</option>
+                    <option>Flowering</option>
+                    <option>Fruiting</option>
+                    <option>Harvest</option>
+                </select>
+
+
+                <label>Location</label>
+
+                <input type="text" id="location" placeholder="Example: Madurai, Tamil Nadu">
+
+
+                <label>Describe the Problem</label>
+
+                <textarea id="question" placeholder="Example: Leaves are turning yellow after rain..."></textarea>
+
+
+                <button class="analyze-btn" onclick="analyzeCrop()">
+                    🔍 Analyze Crop
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULT DASHBOARD -->
+
+    <section class="results" id="results">
+
+        <div class="section-title">
+
+            <p class="small-title">
+                AI ANALYSIS
+            </p>
+
+            <h2>
+                Crop Health Report
+            </h2>
+
+        </div>
+
+
+        <div class="result-dashboard">
+
+            <div class="result-main">
+
+                <div class="result-header">
+
+                    <div>
+                        <p>Possible Problem</p>
+
+                        <h2 id="diseaseResult">
+                            Leaf Spot Disease
+                        </h2>
+                    </div>
+
+                    <div class="status">
+                        Moderate
+                    </div>
+
+                </div>
+
+
+                <div class="confidence">
+
+                    <div class="confidence-top">
+                        <span>AI Confidence</span>
+                        <strong>78%</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div></div>
+                    </div>
+
+                </div>
+
+
+                <div class="evidence">
+
+                    <h3>🔎 Supporting Evidence</h3>
+
+                    <ul>
+                        <li>Visible spots on leaves</li>
+                        <li>Recent rainfall</li>
+                        <li>High humidity may support infection</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="action-card">
+
+                <h3>💡 Recommended Actions</h3>
+
+                <div class="action">
+                    <span>01</span>
+                    <p>Upload a clearer close-up image.</p>
+                </div>
+
+                <div class="action">
+                    <span>02</span>
+                    <p>Monitor whether the spots are spreading.</p>
+                </div>
+
+                <div class="action">
+                    <span>03</span>
+                    <p>Avoid unnecessary pesticide application.</p>
+                </div>
+
+                <div class="action">
+                    <span>04</span>
+                    <p>Consult an agricultural expert if symptoms worsen.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="warning">
+
+            ⚠️ <strong>Safety Notice:</strong>
+
+            This AI result is a preliminary assessment,
+            not a confirmed diagnosis. Verify the problem
+            before applying any chemical treatment.
+
+        </div>
+
+    </section>
+
+
+    <!-- CHATBOT -->
+
+    <section class="chat-section" id="chatbot">
+
+        <div class="section-title">
+
+            <p class="small-title">
+                AI AGRICULTURE ASSISTANT
+            </p>
+
+            <h2>
+                Ask Your Farming Question
+            </h2>
+
+        </div>
+
+
+        <div class="chatbox">
+
+            <div class="chat-header">
+                🤖 CropCare AI Assistant
+                <span>● Online</span>
+            </div>
+
+
+            <div class="messages" id="messages">
+
+                <div class="bot-message">
+
+                    👋 Hello! I'm your agricultural AI assistant.
+                    Ask me about your crop health.
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-input">
+
+                <input type="text" id="chatInput" placeholder="Ask something about your crop..."
+                    onkeypress="handleEnter(event)">
+
+                <button onclick="sendMessage()">
+                    ➤
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>🌱 CropCare AI</h3>
+
+        <p>
+            AI-powered crop health decision support.
+        </p>
+
+        <small>
+            © 2026 CropCare AI
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
